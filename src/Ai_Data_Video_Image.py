@@ -54,7 +54,7 @@ class Facial_Reg(object):
                     cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
             cv2.imshow('img',img)
             cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            cv2.destroyAllWindows() #
 
 if __name__ == '__main__':
     #oVideo_Utils = Video_Utils()
