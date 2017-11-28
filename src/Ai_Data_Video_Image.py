@@ -19,8 +19,14 @@ class Video_Utils(object):
         while success:
           success,image = vidcap.read()
           print('Read a new frame: ', success)
-          cv2.imwrite(Video_Utils.clsStr2 + "frame%d.jpg" % count, image)     # save frame as JPEG file
-          count += 1    
+          if image != None:
+              tuple_shape = image.shape
+              rows = tuple_shape[0]
+              cols = tuple_shape[1]
+              oRotateMatrix = cv2.getRotationMatrix2D((cols/2,rows/2),90,1) # rotates the image by 90 degree with respect to center without any scaling. 
+              orotate_image = cv2.warpAffine(image,oRotateMatrix,(cols,rows))
+              cv2.imwrite(Video_Utils.clsStr2 + "frame%d.jpg" % count, orotate_image)     # save frame as JPEG file
+              count += 1    
 
 if __name__ == '__main__':
     oVideo_Utils = Video_Utils()
