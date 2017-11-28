@@ -25,7 +25,7 @@ def f_test1():
             roi_gray = gray[y:y+h, x:x+w]
             roi_color = img[y:y+h, x:x+w]
             eyes = eye_cascade.detectMultiScale(roi_gray)
-            for (ex,ey,ew,eh) in eyes:
+            for (ex,ey,ew,eh) in eyes: 
                 int_eyesFound_counter = int_eyesFound_counter + 1
                 cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
             cv2.imshow('img',img)
